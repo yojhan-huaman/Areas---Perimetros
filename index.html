@@ -75,6 +75,12 @@
         function Volver() {
             location.reload("index.html");
         };
+        document.getElementById("radio").addEventListener('keydown', function(event) {
+            let tecla = event.key;
+            if (isNaN(tecla) && tecla !== 'Backspace') {
+                event.preventDefault();
+            }
+        });
     </script>
     <div style="height: 80px;">
         <div class="modal-dialog">
