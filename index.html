@@ -26,7 +26,7 @@
     <video src="videos/toro.mp4" autoplay="true" muted="true" loop="true"></video>
     <script>
         function areaC() {
-            var radio = document.getElementById("radio").value=event.charCode >= 48 && event.charCode <= 57;;
+            var radio = parseFloat(document.getElementById("radio").value);
             var areaC = Math.PI * Math.pow(radio, 2);
             var area = areaC.toFixed(2);
             alert("El area es " + area);
@@ -74,14 +74,6 @@
         };
         function Volver() {
             location.reload("index.html");
-        };
-        function validar(){
-        document.getElementById("radio").addEventListener("keydown", function(event) {
-            let tecla = event.key;
-            if (isNaN(tecla) && tecla !== "Backspace") {
-                event.preventDefault();
-            }
-            })
         };
     </script>
     <div style="height: 80px;">
@@ -135,7 +127,7 @@
                 <div class="modal-header">
                     <div class="form-group">
                         <label>Ingrese el radio</label>
-                        <input type="text" aria-required="true" onkeypress="validar()"
+                        <input type="text" aria-required="true" inputmode="numeric" pattern="[0-9]*"
                             class="form-control" name="radio" id="radio">
                         <p id="mensaje"></p>
                     </div>
