@@ -26,17 +26,17 @@
     <video src="videos/toro.mp4" autoplay="true" muted="true" loop="true"></video>
     <script>
         function areaC() {
-            var radio = document.getElementById("radio").value=event.charCode >= 48 && event.charCode <= 57;;
-            var areaC = Math.PI * Math.pow(radio, 2);
-            var area = areaC.toFixed(2);
-            alert("El area es " + area);
+            var radio = parseFloat(document.getElementById("radio").value)
+            var areaC = Math.PI * Math.pow(radio, 2)
+            var area = areaC.toFixed(2)
+            alert("El area es " + area)
         };
         function areaT() {
-            var base = parseFloat(document.getElementById("base").value);
-            var altura = parseFloat(document.getElementById("altura").value);
+            var base = parseFloat(document.getElementById("base").value)
+            var altura = parseFloat(document.getElementById("altura").value)
             var area = (base * altura) / 2;
             alert("El area es " + area);
-        }
+        };
         function areaCu() {
             var lado = parseFloat(document.getElementById("lado").value);
             var area = Math.pow(lado, 2);
@@ -75,12 +75,6 @@
         function Volver() {
             location.reload("index.html");
         };
-        document.getElementById("radio").addEventListener('keydown', function(event) {
-            let tecla = event.key;
-            if (isNaN(tecla) && tecla !== 'Backspace') {
-                event.preventDefault();
-            }
-        });
     </script>
     <div style="height: 80px;">
         <div class="modal-dialog">
@@ -133,7 +127,7 @@
                 <div class="modal-header">
                     <div class="form-group">
                         <label>Ingrese el radio</label>
-                        <input type="text" aria-required="true" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                        <input type="text" aria-required="true" inputmode="numeric" pattern="[0-9]*" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
                             class="form-control" name="radio" id="radio">
                     </div>
                     <div class="modal-footer">
