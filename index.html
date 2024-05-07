@@ -75,12 +75,14 @@
         function Volver() {
             location.reload("index.html");
         };
-        document.getElementById("radio").addEventListener('keydown', function(event) {
+        function validar(){
+        document.getElementById("radio").addEventListener("keydown", function(event) {
             let tecla = event.key;
-            if (isNaN(tecla) && tecla !== 'Backspace') {
+            if (isNaN(tecla) && tecla !== "Backspace") {
                 event.preventDefault();
             }
-            });
+            })
+        };
     </script>
     <div style="height: 80px;">
         <div class="modal-dialog">
@@ -133,7 +135,7 @@
                 <div class="modal-header">
                     <div class="form-group">
                         <label>Ingrese el radio</label>
-                        <input type="text" aria-required="true"
+                        <input type="text" aria-required="true" onkeypress="validar()"
                             class="form-control" name="radio" id="radio">
                         <p id="mensaje"></p>
                     </div>
