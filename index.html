@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>CALCULADORA</title>
@@ -12,17 +13,19 @@
             margin-left: auto;
             margin-right: 10%;
         }
+
         label {
             color: white;
         }
-    
+
         .modal-content {
             background-color: transparent;
         }
     </style>
 </head>
+
 <body>
-    
+
     <video src="videos/toro.mp4" autoplay="true" muted="true" loop="true"></video>
     <script>
         function areaC() {
@@ -75,6 +78,9 @@
         function Volver() {
             location.reload("index.html");
         };
+        function validar(input) {
+            input.value = input.value.replace(/[^\d]/g, '');
+        }
     </script>
     <div style="height: 80px;">
         <div class="modal-dialog">
@@ -127,12 +133,11 @@
                 <div class="modal-header">
                     <div class="form-group">
                         <label>Ingrese el radio</label>
-                        <input type="text" aria-required="true" inputmode="numeric" pattern="[0-9]*" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-                            class="form-control" name="radio" id="radio">
+                        <input type="text"  class="form-control" id="radio" pattern="[0-9]*" oninput="validarNumero(this)">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#Calcular" id="Calcular"
-                            onclick="areaC()">Calcular</button>
+                        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#Calcular"
+                            id="Calcular" onclick="areaC()">Calcular</button>
                         <button class="btn btn-danger" data-toggle="modal" data-target="#reload" id="reload"
                             onclick="Volver()">Volver</button>
                     </div>
@@ -291,4 +296,5 @@
         </div>
     </div>
 </body>
+
 </html>
